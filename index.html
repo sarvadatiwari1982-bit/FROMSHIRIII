@@ -1,14 +1,19 @@
-
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Loveeeeyyy Doveeeyy 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Poppins:wght@400;600;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600;1,700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body, html { width: 100%; height: 100%; font-family: 'Poppins', sans-serif; overflow: hidden; background: #000; }
+        body, html { 
+            width: 100%; 
+            height: 100%; 
+            font-family: 'Poppins', sans-serif; 
+            overflow: hidden; 
+            background: #2a080c; 
+        }
 
         .page {
             display: none;
@@ -24,7 +29,7 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.6s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
         }
         .page.active {
             display: flex;
@@ -40,44 +45,48 @@
         }
         .p1-text {
             color: #4a0e17;
-            font-size: 38px;
-            font-weight: 900;
+            font-size: 36px;
+            font-weight: 800;
             text-align: center;
-            max-width: 80%;
+            max-width: 85%;
             line-height: 1.3;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
         }
 
-        /* Page 2: Galaxy Cosmic Text */
+        /* Page 2: Galaxy Text Page */
         #page2 {
             background-image: url('Screenshot 2026-08-12 214931.png');
             cursor: pointer;
-            padding: 30px;
+            padding: 20px;
             overflow-y: auto;
         }
         .galaxy-card {
-            max-width: 850px;
+            max-width: 800px;
             text-align: center;
             color: #fdf6ec;
-            font-family: 'Caveat', cursive;
-            background: rgba(0, 0, 0, 0.35);
-            padding: 30px;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 30px 25px;
             border-radius: 20px;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
         .galaxy-title {
-            font-size: 36px;
+            font-size: 26px;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 20px;
             line-height: 1.4;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
         }
         .galaxy-body {
-            font-size: 24px;
-            line-height: 1.6;
+            font-size: 19px;
+            line-height: 1.7;
             color: #fdf6ec;
             white-space: pre-line;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
         }
 
         /* Page 3: 15 Envelopes Grid */
@@ -88,22 +97,21 @@
         }
         .p3-title {
             color: #fdf6ec;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 800;
             margin-bottom: 20px;
             text-align: center;
-            font-family: 'Poppins', sans-serif;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
         .grid-5x3 {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
+            gap: 12px;
             width: 95%;
-            max-width: 1100px;
+            max-width: 1050px;
         }
         .env-card {
-            background: rgba(253, 246, 236, 0.9);
+            background: rgba(253, 246, 236, 0.92);
             border: 2px solid #8b263e;
             border-radius: 12px;
             height: 110px;
@@ -114,15 +122,14 @@
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
             text-align: center;
-            position: relative;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        .env-card:hover { transform: scale(1.05); }
+        .env-card:hover { transform: scale(1.04); }
         .env-card.open {
             background: #ffffff;
             border-color: #4a0e17;
         }
-        .env-icon { font-size: 36px; }
+        .env-icon { font-size: 34px; }
         .env-text {
             display: none;
             font-size: 11px;
@@ -142,13 +149,13 @@
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: transform 0.2s;
         }
         .nav-btn:hover { transform: scale(1.05); }
 
-        /* Page 4: Lace Letter Card */
+        /* Page 4: Lace Border Card (Replaced Envelope with Lace Frame) */
         #page4 {
             background-image: url('Screenshot 2026-08-12 215252.png');
             padding: 20px;
@@ -156,30 +163,33 @@
         }
         .lace-container {
             width: 90%;
-            max-width: 500px;
-            min-height: 85vh;
+            max-width: 480px;
+            height: 85vh;
             background-image: url('Screenshot 2026-08-12 215706.png');
-            background-size: 100% 100%;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 80px 45px 60px 45px;
+            padding: 90px 45px 70px 45px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border-radius: 20px;
+        }
+        .lace-text-wrapper {
+            width: 100%;
+            max-height: 60vh;
+            overflow-y: auto;
+            text-align: center;
+            padding-right: 5px;
         }
         .lace-text {
             color: #4a0e17;
-            font-family: 'Great Vibes', 'Caveat', cursive;
-            font-size: 22px;
-            line-height: 1.5;
-            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1.6;
             font-weight: 600;
-            overflow-y: auto;
-            max-height: 60vh;
-            padding-right: 5px;
         }
 
         /* Page 5: Vintage Rose Frame Card */
@@ -190,97 +200,82 @@
         }
         .rose-frame-container {
             width: 92%;
-            max-width: 520px;
+            max-width: 500px;
             height: 88vh;
             background-image: url('Screenshot 2026-08-12 220524.png');
-            background-size: 100% 100%;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 100px 75px 80px 70px;
+            padding: 90px 65px 75px 65px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             border-radius: 25px;
-            position: relative;
         }
         .rose-text-wrapper {
             width: 100%;
-            max-height: 65vh;
+            max-height: 60vh;
             overflow-y: auto;
             text-align: center;
             padding-right: 5px;
         }
         .rose-title {
             color: #5c0612;
-            font-family: 'Great Vibes', 'Playfair Display', cursive;
-            font-size: 26px;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
             font-style: italic;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.3;
         }
         .rose-body {
-            color: #4a040d;
-            font-family: 'Playfair Display', 'Caveat', serif;
+            color: #3b0209;
+            font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 17px;
+            font-size: 15px;
             line-height: 1.6;
             font-weight: 600;
-            text-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
         }
 
-        /* Page 6: Final Diagonal Maroon Overlay Page */
+        /* Page 6: Final Diagonal Rose Overlay Background */
         #page6 {
-            background-image: url('Screenshot 2026-08-12 215252.png');
+            background-image: url('Screenshot 2026-08-12 222006.jpg');
             padding: 20px;
             overflow-y: auto;
         }
-        .final-bg-card {
-            width: 92%;
-            max-width: 500px;
-            height: 90vh;
-            background-image: url('Screenshot 2026-08-12 221358.png');
-            background-size: 100% 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .maroon-bounded-text {
-            width: 65%;
-            max-height: 65vh;
-            overflow-y: auto;
+        .final-content-box {
+            width: 85%;
+            max-width: 550px;
+            background: rgba(42, 8, 12, 0.65);
+            padding: 35px 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             text-align: center;
+        }
+        .final-text {
             color: #fdf6ec;
-            font-family: 'Great Vibes', 'Caveat', cursive;
+            font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 700;
-            font-size: 28px;
-            line-height: 1.4;
-            transform: rotate(-12deg);
+            font-size: 22px;
+            line-height: 1.6;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-            padding: 10px;
         }
 
         @media (max-width: 768px) {
             .grid-5x3 { grid-template-columns: repeat(3, 1fr); }
             .env-card { height: 95px; }
-            .p1-text { font-size: 26px; }
-            .galaxy-title { font-size: 26px; }
-            .galaxy-body { font-size: 18px; }
-            .lace-text { font-size: 18px; }
-            .lace-container { padding: 65px 30px 45px 30px; }
-            .rose-frame-container { padding: 85px 50px 70px 45px; }
-            .rose-title { font-size: 21px; }
-            .rose-body { font-size: 14px; line-height: 1.5; }
-            .maroon-bounded-text { font-size: 20px; width: 75%; }
+            .p1-text { font-size: 24px; }
+            .galaxy-title { font-size: 20px; }
+            .galaxy-body { font-size: 16px; }
+            .lace-text { font-size: 15px; }
+            .lace-container { padding: 75px 35px 55px 35px; }
+            .rose-frame-container { padding: 80px 45px 65px 45px; }
+            .rose-title { font-size: 19px; }
+            .rose-body { font-size: 13.5px; line-height: 1.5; }
+            .final-text { font-size: 18px; }
         }
     </style>
 </head>
@@ -293,7 +288,7 @@
         </div>
     </div>
 
-    <!-- Page 2: Galaxy Cursive Text -->
+    <!-- Page 2: Galaxy Text -->
     <div id="page2" class="page" onclick="goToPage(3)">
         <div class="galaxy-card">
             <div class="galaxy-title">TO THEEE LOVEEE OFFFF MYYY LIFEEEE💌🥀💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰</div>
@@ -310,15 +305,17 @@ I reallyyy appreciateeee your patience to tolerate me nd handle me with sooo muc
         <button class="nav-btn" onclick="goToPage(4)">Next Secret Love Note &rarr;</button>
     </div>
 
-    <!-- Page 4: Lace Letter Frame -->
+    <!-- Page 4: Lace Border Card -->
     <div id="page4" class="page">
         <div class="lace-container">
-            <div class="lace-text">
+            <div class="lace-text-wrapper">
+                <div class="lace-text">
 There are not limited reasons why I love you babyyyy!!!💗🧿💅🏻😭🎀✨🫵🏻🫀<br><br>
 I do not love you because of your money, I do not love you because you have started working from this age, I do not love you because you may become rich by strting to earn from today!!<br><br>
 BUT I LOVE YOU BECAUSE THERE'S SOMETHING DIFFERENT AND PRECIOUS IN THIS VERY SIMPLE GUY🫵🏻😭🎀🫀🥰🫶🏻💍<br><br>
 I love you because I feel special nd safe when I'm with youuuu!!!! I love youuu because I have a gutt feeling, "HE'S THE ONE"💗🧿💅🏻😭🎀✨🫵🏻🫀💗🧿💅🏻😭🎀<br><br>
 I loveeeee youuuuuuuu becausee I WISHH TO LOVEE YOUU💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💋😭🫵🏻🎀🫀💗✨💅🏻
+                </div>
             </div>
             <button class="nav-btn" onclick="goToPage(5)" style="margin-top: 15px; font-size: 13px; padding: 8px 20px;">Continue &rarr;</button>
         </div>
@@ -339,8 +336,8 @@ Your parents love you bcz they owe you as their offspring!! Your brother loves y
 
     <!-- Page 6: Final Grand End Slide -->
     <div id="page6" class="page">
-        <div class="final-bg-card">
-            <div class="maroon-bounded-text">
+        <div class="final-content-box">
+            <div class="final-text">
                 I LOVEEEEEEEEEEEEEEEEEEE YOUUUUUUUUUUUUUUUUUUUUU ANDDDDDDDDDDDDDDDD I WANTTTTTTTTT TOOOOOOO ANNNOYYYYYYYY YOUUUUUUUUU FOREVERRRRRRRRR!!!!!💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💋😭🫵🏻🎀🫀💗✨💅🏻
             </div>
         </div>
@@ -383,4 +380,5 @@ Your parents love you bcz they owe you as their offspring!! Your brother loves y
     </script>
 </body>
 </html>
+           
            
