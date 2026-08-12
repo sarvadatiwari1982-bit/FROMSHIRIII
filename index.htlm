@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Loveeeeyyy Doveeeyy 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Poppins:wght@400;600;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html { width: 100%; height: 100%; font-family: 'Poppins', sans-serif; overflow: hidden; background: #000; }
+
+        .page {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        .page.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Page 1: Bows & Cherries Landing */
+        #page1 {
+            background-image: url('image_4.png');
+            cursor: pointer;
+            text-align: center;
+            padding: 20px;
+        }
+        .p1-text {
+            color: #4a0e17;
+            font-size: 38px;
+            font-weight: 900;
+            text-align: center;
+            max-width: 80%;
+            line-height: 1.3;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+        }
+
+        /* Page 2: Galaxy Cosmic Text */
+        #page2 {
+            background-image: url('image_5.png');
+            cursor: pointer;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        .galaxy-card {
+            max-width: 850px;
+            text-align: center;
+            color: #fdf6ec;
+            font-family: 'Caveat', cursive;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+        .galaxy-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .galaxy-body {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #fdf6ec;
+            white-space: pre-line;
+        }
+
+        /* Page 3: 15 Envelopes Grid */
+        #page3 {
+            background-image: url('image_f85d37.jpg');
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .p3-title {
+            color: #fdf6ec;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+        .grid-5x3 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            width: 95%;
+            max-width: 1100px;
+        }
+        .env-card {
+            background: rgba(253, 246, 236, 0.9);
+            border: 2px solid #8b263e;
+            border-radius: 12px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .env-card:hover { transform: scale(1.05); }
+        .env-card.open {
+            background: #ffffff;
+            border-color: #4a0e17;
+        }
+        .env-icon { font-size: 36px; }
+        .env-text {
+            display: none;
+            font-size: 11px;
+            font-weight: 700;
+            color: #4a0e17;
+            line-height: 1.3;
+        }
+        .env-card.open .env-icon { display: none; }
+        .env-card.open .env-text { display: block; }
+
+        .nav-btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #fdf6ec;
+            color: #4a0e17;
+            font-weight: 800;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+        }
+        .nav-btn:hover { transform: scale(1.05); }
+
+        /* Page 4: Lace Letter Card */
+        #page4 {
+            background-image: url('image_f85d37.jpg');
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .lace-container {
+            width: 90%;
+            max-width: 500px;
+            min-height: 85vh;
+            background-image: url('image_f7f0f5.png');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 45px 60px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 20px;
+        }
+        .lace-text {
+            color: #4a0e17;
+            font-family: 'Great Vibes', 'Caveat', cursive;
+            font-size: 22px;
+            line-height: 1.5;
+            text-align: center;
+            font-weight: 600;
+            overflow-y: auto;
+            max-height: 60vh;
+            padding-right: 5px;
+        }
+
+        /* Page 5: Vintage Rose Frame Card */
+        #page5 {
+            background-image: url('image_f85d37.jpg');
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .rose-frame-container {
+            width: 92%;
+            max-width: 520px;
+            height: 88vh;
+            background-image: url('image_f78f21.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 75px 80px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border-radius: 25px;
+            position: relative;
+        }
+        .rose-text-wrapper {
+            width: 100%;
+            max-height: 65vh;
+            overflow-y: auto;
+            text-align: center;
+            padding-right: 5px;
+        }
+        .rose-title {
+            color: #5c0612;
+            font-family: 'Great Vibes', 'Playfair Display', cursive;
+            font-size: 26px;
+            font-style: italic;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .rose-body {
+            color: #4a040d;
+            font-family: 'Playfair Display', 'Caveat', serif;
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1.6;
+            font-weight: 600;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Page 6: Final Diagonal Maroon Overlay Page */
+        #page6 {
+            background-image: url('image_f85d37.jpg');
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .final-bg-card {
+            width: 92%;
+            max-width: 500px;
+            height: 90vh;
+            background-image: url('image_f78093.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .maroon-bounded-text {
+            width: 65%;
+            max-height: 65vh;
+            overflow-y: auto;
+            text-align: center;
+            color: #fdf6ec; /* Beige Cream Color */
+            font-family: 'Great Vibes', 'Caveat', cursive;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 1.4;
+            transform: rotate(-12deg); /* Aligns perfectly with the diagonal maroon rose texture */
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-5x3 { grid-template-columns: repeat(3, 1fr); }
+            .env-card { height: 95px; }
+            .p1-text { font-size: 26px; }
+            .galaxy-title { font-size: 26px; }
+            .galaxy-body { font-size: 18px; }
+            .lace-text { font-size: 18px; }
+            .lace-container { padding: 65px 30px 45px 30px; }
+            .rose-frame-container { padding: 85px 50px 70px 45px; }
+            .rose-title { font-size: 21px; }
+            .rose-body { font-size: 14px; line-height: 1.5; }
+            .maroon-bounded-text { font-size: 20px; width: 75%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1: Bows & Cherries -->
+    <div id="page1" class="page active" onclick="goToPage(2)">
+        <div class="p1-text">
+            CLICK TO OPEN, MY LOVEEYYY DOVEEEYY😋💗
+        </div>
+    </div>
+
+    <!-- Page 2: Galaxy Cursive Text -->
+    <div id="page2" class="page" onclick="goToPage(3)">
+        <div class="galaxy-card">
+            <div class="galaxy-title">TO THEEE LOVEEE OFFFF MYYY LIFEEEE💌🥀💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰</div>
+            <div class="galaxy-body">
+I reallyyy appreciateeee your patience to tolerate me nd handle me with sooo muchhh loveee n care😋😋 I thank you for not leaving me halfway at moments when i really deserved to be left alone🥹🥹🥹 TUMM EKDMMM SHIII M MEREEE KUCHUPUCHUUU, MEREEE BCHEEEE, MEREEE SUPERHEROOOOO, ALLL INNN ONEE HARDWORKINGGG SHBB JIIII, BILLOTEEE, BDMOSSHHHHH, BABYYYYYYY, LOVEYYYY DOVEYYYY AUR BHII BHTTTT BHTTTT BHTTTT KUCHHHH HOOOOOOO!!!!!🥳🥳🥳💅🏻💅🏻😭😭🤭🤭🤭 I reallllllyyyyyyyyyy reaaaaalllllllyyyyyyyyyyyyyyyy loveeeeeeeeeeeeee youuuuuuuuuuuuuuuuu soooooooooooooooo sooooooooooooooooooooo muchhhhhhhhhhhhhhhhhhhhhhhhhhhh shonaaaaaaaaaaaaa💋💋💋💋🎀🎀🎀🥰🥰🥰🥰🥰🥰 Pleaseee don't everrrr leaveeeeeeee meeeeee!!!! STAYYYY WITTTHHH ME FOREVERRRRRRR ndd never let me forget how a person can feel like home🤍💌🎀😋😋😝😝😝💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: 15 Envelope Grid -->
+    <div id="page3" class="page">
+        <div class="p3-title">I LOVE YOU BCZ OF--🥰🥰🥰</div>
+        <div class="grid-5x3" id="envGrid"></div>
+        <button class="nav-btn" onclick="goToPage(4)">Next Secret Love Note &rarr;</button>
+    </div>
+
+    <!-- Page 4: Lace Letter Frame -->
+    <div id="page4" class="page">
+        <div class="lace-container">
+            <div class="lace-text">
+There are not limited reasons why I love you babyyyy!!!💗🧿💅🏻😭🎀✨🫵🏻🫀<br><br>
+I do not love you because of your money, I do not love you because you have started working from this age, I do not love you because you may become rich by strting to earn from today!!<br><br>
+BUT I LOVE YOU BECAUSE THERE'S SOMETHING DIFFERENT AND PRECIOUS IN THIS VERY SIMPLE GUY🫵🏻😭🎀🫀🥰🫶🏻💍<br><br>
+I love you because I feel special nd safe when I'm with youuuu!!!! I love youuu because I have a gutt feeling, "HE'S THE ONE"💗🧿💅🏻😭🎀✨🫵🏻🫀💗🧿💅🏻😭🎀<br><br>
+I loveeeee youuuuuuuu becausee I WISHH TO LOVEE YOUU💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💋😭🫵🏻🎀🫀💗✨💅🏻
+            </div>
+            <button class="nav-btn" onclick="goToPage(5)" style="margin-top: 15px; font-size: 13px; padding: 8px 20px;">Continue &rarr;</button>
+        </div>
+    </div>
+
+    <!-- Page 5: Rose Frame Card -->
+    <div id="page5" class="page">
+        <div class="rose-frame-container">
+            <div class="rose-text-wrapper">
+                <div class="rose-title">ALWAYSSS REMEMBERRRR!!!😭😭😭🫀🎀🥀✨✨</div>
+                <div class="rose-body">
+Your parents love you bcz they owe you as their offspring!! Your brother loves you bcz you both share the same blood!! Your family loves you bcz you are theirs!! BUT I? I'm not ur family!! I'm not even ur relative!! THEN WHY AM I LOVING YOU?? It is because I choose you to lovee!!! I'm not assigned to love you, I do it by my own choice!! NDDD I WOULDD LOVEE YOU TILL MY LASTT BREATHH DARLINGGG!!!! YOU'LL ALWAYS HAVE ME BY YOUR SIDE!!!💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💋😭🫵🏻🎀🫀💗✨💅🏻
+                </div>
+            </div>
+            <button class="nav-btn" onclick="goToPage(6)" style="margin-top: 15px; font-size: 13px; padding: 8px 20px;">Final Surprise &rarr;</button>
+        </div>
+    </div>
+
+    <!-- Page 6: Final Grand End Slide -->
+    <div id="page6" class="page">
+        <div class="final-bg-card">
+            <div class="maroon-bounded-text">
+                I LOVEEEEEEEEEEEEEEEEEEE YOUUUUUUUUUUUUUUUUUUUUU ANDDDDDDDDDDDDDDDD I WANTTTTTTTTT TOOOOOOO ANNNOYYYYYYYY YOUUUUUUUUU FOREVERRRRRRRRR!!!!!💗🧿💅🏻😭🎀✨🫵🏻🫀🥰💋⛓️💍🥀🤭🫶🏻🤍💞😋💟💌👀🥳💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💗✨💋💅🏻🫵🏻😭🎀🫀🥰🫶🏻💍🥀🤭🤍💞😋💟💌👀🥳🧿💋😭🫵🏻🎀🫀💗✨💅🏻
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const reasons = [
+            "1. YOUR BEAUTIFULL SMILEE💗🧿💅🏻😭🎀",
+            "2. YOUR EYES💗💞😋💟💌",
+            "3. YOUR WAY OF CONVERSATING🫵🏻🎀🫀💗✨💅🏻",
+            "4. YOUR ENDLESS CARE🥰🫶🏻💍✨💅🏻",
+            "5. YOUR WAY OF PROTECTING💗🧿💅🏻😭🎀✨",
+            "6. YOUR SKILL TO PAMPER💌👀🥳💗✨💋",
+            "7. YOUR CHILDISH BEHAVIOUR🫵🏻😭💗🧿",
+            "8. YOUR POSSESSIVENESS😋💟💌👀🥳🧿💋",
+            "9. YOUR ATTENTIVENESS💗🧿💅🏻😭🎀✨",
+            "10. YOUR WAY TO DEAL WITH THINGS CALMLY😭🎀🫀🥰🫶🏻💍",
+            "11. YOU NEVER RAISE YOUR VOICE🤭🤍💞😋💟💌",
+            "12. YOU ARE ALWAYS THERE FOR ME💗🧿💅🏻😭🎀✨🫵🏻",
+            "13. YOU TREAT ME THE WAY I DESERVE😭🎀🫀🥰🫶🏻💍",
+            "14. YOU HAVE A KIND HEART🎀🫀🥰🫶🏻💍🥀🤭",
+            "15. DO YOU STILL LOOK FORWARD FOR THE LAST REASON?🧿💅🏻😭🎀"
+        ];
+
+        const grid = document.getElementById('envGrid');
+        reasons.forEach((text) => {
+            const card = document.createElement('div');
+            card.className = 'env-card';
+            card.innerHTML = `<div class="env-icon">✉️</div><div class="env-text">${text}</div>`;
+            card.onclick = () => card.classList.toggle('open');
+            grid.appendChild(card);
+        });
+
+        function goToPage(pageNum) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            setTimeout(() => {
+                document.getElementById('page' + pageNum).classList.add('active');
+            }, 200);
+        }
+    </script>
+</body>
+</html>
